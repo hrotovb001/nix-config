@@ -18,6 +18,9 @@
     keymaps = [
       { mode = "n"; key = "<leader>pv"; action = ":Ex<CR>"; options = { noremap = true; }; }
     ];
+    plugins = {
+      codeium-vim.enable = true;
+    };
   };
 }
 

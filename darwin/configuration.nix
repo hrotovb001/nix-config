@@ -7,7 +7,9 @@
     [ pkgs.sshfs
       pkgs.jq
     ];
-  
+
+  nixpkgs.config.allowUnfree = true;
+
   homebrew = {
     enable = true;
     casks = [
