@@ -3,6 +3,8 @@
 {
   imports = [ ./nixvim ./git.nix ];
 
+  home.packages = [ pkgs.aider-chat ];
+
   programs.kitty = {
     enable = true;
     settings = {
