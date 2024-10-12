@@ -12,7 +12,7 @@
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, home-manager, nixvim }:
+  outputs = inputs:
   let
     darwinConfig = import ./darwin { inherit inputs; };
   in
