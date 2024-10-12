@@ -18,8 +18,8 @@
     extraConfig = ''
       Host crossdim
         HostName 34.67.51.12
-    User bohdanhrotovytskyy
-    IdentityFile ~/.ssh/id_rsa
+        User bohdanhrotovytskyy
+        IdentityFile ~/.ssh/id_rsa
     '';
   };
 
@@ -36,6 +36,8 @@
       shell.disabled = false;
     };
   };
+
+  programs.ripgrep.enable = true;
 
   home.stateVersion = "24.11";
 }
