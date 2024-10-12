@@ -13,32 +13,10 @@
   };
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, home-manager, nixvim }:
-
+  let
+    darwinConfig = import ./darwin { inherit inputs; };
+  in
   {
-    # Build darwin flake using:
-    # $ darwin-rebuild build --flake .#Bohdans-MacBook-Pro
-    darwinConfigurations."Bohdans-MacBook-Pro" = nix-darwin.lib.darwinSystem {
-      specialArgs = { inherit self; };
-      modules = [
-        ./darwin
-        nix-homebrew.darwinModules.nix-homebrew
-        {
-          nix-homebrew = {
-            enable = true;
-            user = "hero3";
-          };
-        }
-        home-manager.darwinModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.hero3 = { pkgs, ... }:
-            { imports = [ nixvim.homeManagerModules.nixvim ./home ]; };
-        }
-      ];
-    };
-
-    # Expose the package set, including overlays, for convenience.
-    darwinPackages = self.darwinConfigurations."Bohdans-MacBook-Pro".pkgs;
+    darwinConfigurations."Bohdans-MacBook-Pro" = darwinConfig;
   };
 }
