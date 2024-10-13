@@ -40,6 +40,10 @@
         _HIHideMenuBar = true;
       };
     };
+    keyboard = {
+      enableKeyMapping = true;
+      remapCapsLockToControl = true;
+    };
   };
 
   # Auto upgrade nix package and the daemon service.

@@ -1,5 +1,7 @@
 { pkgs, ... }:
-
+let
+  smart-splits = import ./smart-splits.nix;
+in
 {
   programs.nixvim = {
     enable = true;
@@ -21,8 +23,9 @@
     globals.mapleader = " ";
     keymaps = [
       { mode = "n"; key = "<leader>pv"; action = ":Ex<CR>"; options = { noremap = true; }; }
-    ];
+    ] ++ smart-splits.keymaps;
     plugins = {
+      smart-splits.enable = true;
       codeium-vim.enable = true;
       web-devicons.enable = true;
       telescope = {
