@@ -25,14 +25,6 @@
 
       # toggle layout
       alt - d : yabai -m space --layout $(yabai -m query --spaces --space | jq -r 'if .type == "bsp" then "stack" else "bsp" end')
-
-      # Change master window width
-      lalt + shift - h : yabai -m window --resize left:-30:0
-      lalt + shift - l : yabai -m window --resize right:30:0
-      
-      # Change split height
-      lalt + shift - u : yabai -m window --resize top:0:-30
-      lalt + shift - d : yabai -m window --resize bottom:0:30
     '';
   };
 }
