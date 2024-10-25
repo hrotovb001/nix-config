@@ -43,7 +43,7 @@ in
             jedi_language_server.enable = true;
         };
         keymaps.lspBuf = {
-          K = "hover";
+          gh = "hover";
           gD = "references";
           gd = "definition";
           gi = "implementation";
