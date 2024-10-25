@@ -18,8 +18,8 @@
   programs.ssh = {
     enable = true;
     extraConfig = ''
-      Host crossdim
-        HostName 34.67.51.12
+      Host crossdim-azure
+        HostName 172.214.150.188
         User bohdanhrotovytskyy
         IdentityFile ~/.ssh/id_rsa
     '';
